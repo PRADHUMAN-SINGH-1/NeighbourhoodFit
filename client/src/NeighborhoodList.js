@@ -10,7 +10,6 @@ function NeighborhoodList() {
   const [minSafety, setMinSafety] = useState(0);
   const [maxRent, setMaxRent] = useState(100000);
   const [lifestyleFilter, setLifestyleFilter] = useState('all');
-  const [openInfo, setOpenInfo] = useState(null);
 
   // API URL for local + production
   const API_URL =
@@ -66,64 +65,7 @@ function NeighborhoodList() {
   </div>
 
   <div className="filter-item">
-    <label>
-      Minimum Safety Score{' '}
-      <span style={{ position: 'relative', display: 'inline-block', marginLeft: '4px' }}>
-        <button
-          type="button"
-          aria-label="Safety score explanation"
-          aria-expanded={openInfo === 'safety'}
-          onClick={() => setOpenInfo(openInfo === 'safety' ? null : 'safety')}
-          style={{
-            width: '18px',
-            height: '18px',
-            padding: 0,
-            margin: 0,
-            border: '1px solid rgba(0, 224, 255, 0.75)',
-            borderRadius: '50%',
-            background: 'rgba(0, 224, 255, 0.06)',
-            color: '#00e0ff',
-            fontFamily: "'Segoe UI', sans-serif",
-            fontSize: '11px',
-            fontWeight: '700',
-            lineHeight: '16px',
-            textAlign: 'center',
-            cursor: 'help',
-            boxShadow: '0 0 6px rgba(0, 224, 255, 0.15)'
-          }}
-        >
-          i
-        </button>
-        {openInfo === 'safety' && (
-          <span
-            role="tooltip"
-            style={{
-              position: 'absolute',
-              left: '50%',
-              bottom: 'calc(100% + 8px)',
-              transform: 'translateX(-50%)',
-              width: '280px',
-              padding: '9px 11px',
-              borderRadius: '8px',
-              backgroundColor: '#111',
-              color: 'white',
-              border: '1px solid rgba(0, 224, 255, 0.3)',
-              boxShadow: '0 0 15px rgba(0, 224, 255, 0.12)',
-              fontSize: '12px',
-              fontWeight: 'normal',
-              lineHeight: '1.4',
-              textAlign: 'left',
-              whiteSpace: 'normal',
-              zIndex: 50
-            }}
-          >
-            Comparative score based on urban indicators in this dataset, not official crime statistics.
-            <br />
-            <strong>Guide:</strong> 4–5 lower, 5–6.5 moderate, 6.5–8 higher, 8–9.5 very high.
-          </span>
-        )}
-      </span>
-    </label>
+    <label>Minimum Safety Score</label>
     <input
       type="number"
       value={minSafety}
@@ -141,70 +83,7 @@ function NeighborhoodList() {
   </div>
 
   <div className="filter-item">
-    <label>
-      Lifestyle{' '}
-      <span style={{ position: 'relative', display: 'inline-block', marginLeft: '4px' }}>
-        <button
-          type="button"
-          aria-label="Lifestyle filter explanation"
-          aria-expanded={openInfo === 'lifestyle'}
-          onClick={() => setOpenInfo(openInfo === 'lifestyle' ? null : 'lifestyle')}
-          style={{
-            width: '18px',
-            height: '18px',
-            padding: 0,
-            margin: 0,
-            border: '1px solid rgba(0, 224, 255, 0.75)',
-            borderRadius: '50%',
-            background: 'rgba(0, 224, 255, 0.06)',
-            color: '#00e0ff',
-            fontFamily: "'Segoe UI', sans-serif",
-            fontSize: '11px',
-            fontWeight: '700',
-            lineHeight: '16px',
-            textAlign: 'center',
-            cursor: 'help',
-            boxShadow: '0 0 6px rgba(0, 224, 255, 0.15)'
-          }}
-        >
-          i
-        </button>
-        {openInfo === 'lifestyle' && (
-          <span
-            role="tooltip"
-            style={{
-              position: 'absolute',
-              left: '50%',
-              bottom: 'calc(100% + 8px)',
-              transform: 'translateX(-50%)',
-              width: '280px',
-              padding: '9px 11px',
-              borderRadius: '8px',
-              backgroundColor: '#111',
-              color: 'white',
-              border: '1px solid rgba(0, 224, 255, 0.3)',
-              boxShadow: '0 0 15px rgba(0, 224, 255, 0.12)',
-              fontSize: '12px',
-              fontWeight: 'normal',
-              lineHeight: '1.4',
-              textAlign: 'left',
-              whiteSpace: 'normal',
-              zIndex: 50
-            }}
-          >
-            Tags are generated from dataset indicators:
-            <br />
-            <strong>Family-Friendly</strong> = schools + parks
-            <br />
-            <strong>Working Professionals</strong> = metro proximity + rent
-            <br />
-            <strong>Quiet Neighborhoods</strong> = safety + parks
-            <br />
-            <strong>Walkable &amp; Connected</strong> = very close metro access
-          </span>
-        )}
-      </span>
-    </label>
+    <label>Lifestyle</label>
     <select
       value={lifestyleFilter}
       onChange={e => setLifestyleFilter(e.target.value)}
