@@ -341,3 +341,26 @@
     transform: translateY(0);
   }
 }
+
+/* Match Score info icon stays inline directly after the number */
+.match-score .filter-label-with-info {
+  position: static;
+  display: inline;
+}
+
+.match-score .filter-info-button {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.match-score .filter-info-button:hover {
+  transform: scale(1.04);
+}
+
+.match-score .filter-info-tooltip {
+  bottom: calc(100% + 10px);
+}
