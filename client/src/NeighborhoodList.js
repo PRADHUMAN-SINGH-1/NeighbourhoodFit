@@ -10,6 +10,7 @@ function NeighborhoodList() {
   const [minSafety, setMinSafety] = useState(0);
   const [maxRent, setMaxRent] = useState(100000);
   const [lifestyleFilter, setLifestyleFilter] = useState('all');
+  const [openInfo, setOpenInfo] = useState(null);
 
   // API URL for local + production
   const API_URL =
@@ -66,15 +67,25 @@ function NeighborhoodList() {
 
   <div className="filter-item">
     <label className="filter-label">
-      Minimum Safety Score{' '}
-      <button
-        type="button"
-        className="info-button"
-        aria-label="Safety score explanation"
-        data-tooltip="Comparative score based on urban indicators in this dataset, not official crime statistics. Guide: 4–5 lower, 5–6.5 moderate, 6.5–8 higher, 8–9.5 very high."
-      >
-        ⓘ
-      </button>
+      <span>Minimum Safety Score</span>
+      <span className="info-wrap">
+        <button
+          type="button"
+          className="info-button"
+          aria-label="Safety score explanation"
+          aria-expanded={openInfo === 'safety'}
+          onClick={() => setOpenInfo(openInfo === 'safety' ? null : 'safety')}
+        >
+          ⓘ
+        </button>
+        {openInfo === 'safety' && (
+          <span className="info-popover" role="tooltip">
+            Comparative score based on urban indicators in this dataset, not official crime statistics.
+            <br />
+            <strong>Guide:</strong> 4–5 lower, 5–6.5 moderate, 6.5–8 higher, 8–9.5 very high.
+          </span>
+        )}
+      </span>
     </label>
     <input
       type="number"
@@ -94,15 +105,31 @@ function NeighborhoodList() {
 
   <div className="filter-item">
     <label className="filter-label">
-      Lifestyle{' '}
-      <button
-        type="button"
-        className="info-button"
-        aria-label="Lifestyle filter explanation"
-        data-tooltip="Tags are generated from dataset indicators: Family-Friendly = schools + parks; Working Professionals = metro proximity + rent; Quiet Neighborhoods = safety + parks; Walkable & Connected = very close metro access."
-      >
-        ⓘ
-      </button>
+      <span>Lifestyle</span>
+      <span className="info-wrap">
+        <button
+          type="button"
+          className="info-button"
+          aria-label="Lifestyle filter explanation"
+          aria-expanded={openInfo === 'lifestyle'}
+          onClick={() => setOpenInfo(openInfo === 'lifestyle' ? null : 'lifestyle')}
+        >
+          ⓘ
+        </button>
+        {openInfo === 'lifestyle' && (
+          <span className="info-popover" role="tooltip">
+            Tags are generated from dataset indicators:
+            <br />
+            <strong>Family-Friendly</strong> = schools + parks
+            <br />
+            <strong>Working Professionals</strong> = metro proximity + rent
+            <br />
+            <strong>Quiet Neighborhoods</strong> = safety + parks
+            <br />
+            <strong>Walkable &amp; Connected</strong> = very close metro access
+          </span>
+        )}
+      </span>
     </label>
     <select
       value={lifestyleFilter}
