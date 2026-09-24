@@ -9,6 +9,7 @@ function NeighborhoodList() {
   const [searchQuery, setSearchQuery] = useState('');
   const [minSafety, setMinSafety] = useState(0);
   const [maxRent, setMaxRent] = useState(100000);
+  const [lifestyleFilter, setLifestyleFilter] = useState('all');
 
   // API URL for local + production
   const API_URL =
@@ -23,6 +24,10 @@ function NeighborhoodList() {
       .catch(error => console.error('Error fetching data:', error));
   }, [API_URL]);   // ✅ FIXED HERE
 
+  const lifestyleOptions = [...new Set(
+    neighborhoods.flatMap(n => n.lifestyle_tags || [])
+  )].sort();
+
   const filteredNeighborhoods = neighborhoods
     .filter(n => {
 
@@ -32,7 +37,9 @@ function NeighborhoodList() {
       return (
         n.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
         rent <= maxRent &&
-        safety >= minSafety
+        safety >= minSafety &&
+        (lifestyleFilter === 'all' ||
+          (n.lifestyle_tags || []).includes(lifestyleFilter))
       );
 
     })
@@ -73,6 +80,29 @@ function NeighborhoodList() {
       value={maxRent}
       onChange={e => setMaxRent(e.target.value)}
     />
+  </div>
+
+  <div className="filter-item">
+    <label>Lifestyle</label>
+    <select
+      value={lifestyleFilter}
+      onChange={e => setLifestyleFilter(e.target.value)}
+      style={{
+        padding: '10px',
+        borderRadius: '8px',
+        border: 'none',
+        backgroundColor: '#222',
+        color: 'white',
+        width: '200px'
+      }}
+    >
+      <option value="all">All Lifestyles</option>
+      {lifestyleOptions.map(tag => (
+        <option key={tag} value={tag}>
+          {tag}
+        </option>
+      ))}
+    </select>
   </div>
 
 </div>
