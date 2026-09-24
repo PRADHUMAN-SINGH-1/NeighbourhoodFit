@@ -243,6 +243,9 @@
 /* Minimal filter info icons */
 .filter-label-with-info {
   position: relative;
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
 }
 
 .filter-info-button {
