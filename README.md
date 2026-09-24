@@ -40,9 +40,9 @@ Whether you're moving to Bengaluru or exploring better places to live, **Neighbo
 
 # 🧠 Smart Ranking System (Match Score)
 
-Each neighborhood is assigned a **Match Score** that ranks areas based on multiple lifestyle factors.
+Each neighborhood is assigned a **Match Score** that ranks areas based on safety, metro proximity, parks, schools, and rent affordability.
 
-This score helps highlight the **most suitable neighborhoods automatically**.
+This is a general neighborhood suitability score and is **not specific to the selected lifestyle filter**.
 
 ### 📊 Factors Used
 
@@ -63,7 +63,7 @@ Match Score =
 + Rent Affordability Bonus
 ```
 
-Higher score → **better lifestyle match**
+Higher score → **higher overall match score**
 
 ---
 
