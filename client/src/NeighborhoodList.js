@@ -79,16 +79,20 @@ function NeighborhoodList() {
             height: '18px',
             padding: 0,
             margin: 0,
-            border: '1px solid #00e0ff',
+            border: '1px solid rgba(0, 224, 255, 0.75)',
             borderRadius: '50%',
-            background: 'transparent',
+            background: 'rgba(0, 224, 255, 0.06)',
             color: '#00e0ff',
+            fontFamily: "'Segoe UI', sans-serif",
             fontSize: '11px',
+            fontWeight: '700',
             lineHeight: '16px',
-            cursor: 'help'
+            textAlign: 'center',
+            cursor: 'help',
+            boxShadow: '0 0 6px rgba(0, 224, 255, 0.15)'
           }}
         >
-          ⓘ
+          i
         </button>
         {openInfo === 'safety' && (
           <span
@@ -101,10 +105,10 @@ function NeighborhoodList() {
               width: '280px',
               padding: '9px 11px',
               borderRadius: '8px',
-              backgroundColor: '#222',
+              backgroundColor: '#111',
               color: 'white',
-              border: '1px solid #444',
-              boxShadow: '0 4px 14px rgba(0, 0, 0, 0.35)',
+              border: '1px solid rgba(0, 224, 255, 0.3)',
+              boxShadow: '0 0 15px rgba(0, 224, 255, 0.12)',
               fontSize: '12px',
               fontWeight: 'normal',
               lineHeight: '1.4',
@@ -150,16 +154,20 @@ function NeighborhoodList() {
             height: '18px',
             padding: 0,
             margin: 0,
-            border: '1px solid #00e0ff',
+            border: '1px solid rgba(0, 224, 255, 0.75)',
             borderRadius: '50%',
-            background: 'transparent',
+            background: 'rgba(0, 224, 255, 0.06)',
             color: '#00e0ff',
+            fontFamily: "'Segoe UI', sans-serif",
             fontSize: '11px',
+            fontWeight: '700',
             lineHeight: '16px',
-            cursor: 'help'
+            textAlign: 'center',
+            cursor: 'help',
+            boxShadow: '0 0 6px rgba(0, 224, 255, 0.15)'
           }}
         >
-          ⓘ
+          i
         </button>
         {openInfo === 'lifestyle' && (
           <span
@@ -172,10 +180,10 @@ function NeighborhoodList() {
               width: '280px',
               padding: '9px 11px',
               borderRadius: '8px',
-              backgroundColor: '#222',
+              backgroundColor: '#111',
               color: 'white',
-              border: '1px solid #444',
-              boxShadow: '0 4px 14px rgba(0, 0, 0, 0.35)',
+              border: '1px solid rgba(0, 224, 255, 0.3)',
+              boxShadow: '0 0 15px rgba(0, 224, 255, 0.12)',
               fontSize: '12px',
               fontWeight: 'normal',
               lineHeight: '1.4',
