@@ -65,7 +65,21 @@ function NeighborhoodList() {
   </div>
 
   <div className="filter-item">
-    <label>Minimum Safety Score</label>
+    <label className="filter-label-with-info">
+      Minimum Safety Score
+      <button
+        type="button"
+        className="filter-info-button"
+        aria-label="Safety score explanation"
+      >
+        i
+        <span className="filter-info-tooltip" role="tooltip">
+          Comparative score from urban indicators in this dataset, not official crime statistics.
+          <br />
+          <strong>Guide:</strong> 4–5 lower, 5–6.5 moderate, 6.5–8 higher, 8–9.5 very high.
+        </span>
+      </button>
+    </label>
     <input
       type="number"
       value={minSafety}
@@ -83,7 +97,27 @@ function NeighborhoodList() {
   </div>
 
   <div className="filter-item">
-    <label>Lifestyle</label>
+    <label className="filter-label-with-info">
+      Lifestyle
+      <button
+        type="button"
+        className="filter-info-button"
+        aria-label="Lifestyle filter explanation"
+      >
+        i
+        <span className="filter-info-tooltip" role="tooltip">
+          Tags are generated from dataset indicators:
+          <br />
+          <strong>Family-Friendly</strong> = schools + parks
+          <br />
+          <strong>Working Professionals</strong> = metro proximity + rent
+          <br />
+          <strong>Quiet Neighborhoods</strong> = safety + parks
+          <br />
+          <strong>Walkable &amp; Connected</strong> = very close metro access
+        </span>
+      </button>
+    </label>
     <select
       value={lifestyleFilter}
       onChange={e => setLifestyleFilter(e.target.value)}
