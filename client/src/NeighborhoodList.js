@@ -196,7 +196,22 @@ function NeighborhoodList() {
             <h2>{n.name}</h2>
 
             <p className="match-score">
-              ⭐ Lifestyle Match Score: {n.match_score || 'N/A'}
+              <span className="filter-label-with-info">
+                ⭐ Match Score
+                <button
+                  type="button"
+                  className="filter-info-button"
+                  aria-label="Match score explanation"
+                >
+                  i
+                  <span className="filter-info-tooltip" role="tooltip">
+                    Overall neighborhood suitability score based on safety, metro proximity, parks, schools, and rent affordability.
+                    <br />
+                    It is not specific to the selected lifestyle.
+                  </span>
+                </button>
+              </span>
+              : {n.match_score || 'N/A'}
             </p>
 
             <p><strong>Ward:</strong> {n.ward || 'N/A'}</p>
