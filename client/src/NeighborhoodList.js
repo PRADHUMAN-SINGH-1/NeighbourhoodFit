@@ -10,6 +10,7 @@ function NeighborhoodList() {
   const [minSafety, setMinSafety] = useState(0);
   const [maxRent, setMaxRent] = useState(100000);
   const [lifestyleFilter, setLifestyleFilter] = useState('all');
+  const [isLoading, setIsLoading] = useState(true);
 
   // API URL for local + production
   const API_URL =
@@ -21,7 +22,8 @@ function NeighborhoodList() {
     axios
       .get(`${API_URL}/api/neighborhoods`)
       .then(response => setNeighborhoods(response.data))
-      .catch(error => console.error('Error fetching data:', error));
+      .catch(error => console.error('Error fetching data:', error))
+      .finally(() => setIsLoading(false));
   }, [API_URL]);   // ✅ FIXED HERE
 
   const lifestyleOptions = [...new Set(
@@ -140,6 +142,19 @@ function NeighborhoodList() {
   </div>
 
 </div>
+
+      {isLoading && (
+        <div
+          style={{
+            textAlign: 'center',
+            color: 'rgba(255, 255, 255, 0.75)',
+            fontSize: '14px',
+            margin: '-8px 0 18px'
+          }}
+        >
+          Waking up the server… just a moment ☕
+        </div>
+      )}
 
       {/* MAP */}
       
