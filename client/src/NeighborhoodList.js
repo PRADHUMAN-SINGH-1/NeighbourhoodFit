@@ -65,15 +65,16 @@ function NeighborhoodList() {
   </div>
 
   <div className="filter-item">
-    <label>
+    <label className="filter-label">
       Minimum Safety Score{' '}
-      <span
-        title="Comparative score based on urban indicators in this dataset, not official crime statistics. Rough guide: 4–5 lower, 5–6.5 moderate, 6.5–8 higher, 8–9.5 very high."
+      <button
+        type="button"
+        className="info-button"
         aria-label="Safety score explanation"
-        style={{ cursor: 'help' }}
+        data-tooltip="Comparative score based on urban indicators in this dataset, not official crime statistics. Guide: 4–5 lower, 5–6.5 moderate, 6.5–8 higher, 8–9.5 very high."
       >
         ⓘ
-      </span>
+      </button>
     </label>
     <input
       type="number"
@@ -92,15 +93,16 @@ function NeighborhoodList() {
   </div>
 
   <div className="filter-item">
-    <label>
+    <label className="filter-label">
       Lifestyle{' '}
-      <span
-        title="Lifestyle tags are generated from the dataset: Family-Friendly = schools + parks; Working Professionals = metro proximity + rent; Quiet Neighborhoods = safety + parks; Walkable & Connected = very close metro access."
+      <button
+        type="button"
+        className="info-button"
         aria-label="Lifestyle filter explanation"
-        style={{ cursor: 'help' }}
+        data-tooltip="Tags are generated from dataset indicators: Family-Friendly = schools + parks; Working Professionals = metro proximity + rent; Quiet Neighborhoods = safety + parks; Walkable & Connected = very close metro access."
       >
         ⓘ
-      </span>
+      </button>
     </label>
     <select
       value={lifestyleFilter}
