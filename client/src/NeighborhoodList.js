@@ -196,8 +196,8 @@ function NeighborhoodList() {
             <h2>{n.name}</h2>
 
             <p className="match-score">
+              ⭐ Match Score: {n.match_score || 'N/A'}
               <span className="filter-label-with-info">
-                ⭐ Match Score
                 <button
                   type="button"
                   className="filter-info-button"
@@ -211,7 +211,6 @@ function NeighborhoodList() {
                   </span>
                 </button>
               </span>
-              : {n.match_score || 'N/A'}
             </p>
 
             <p><strong>Ward:</strong> {n.ward || 'N/A'}</p>
